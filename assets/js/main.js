@@ -210,3 +210,39 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+
+// function sendEmail() {
+//   const form = document.getElementById('contactForm');
+//   const name = form.elements['name'].value;
+//   const email = form.elements['email'].value;
+//   const subject = form.elements['subject'].value;
+//   const description = form.elements['description'].value;
+
+//   const mailtoLink = `mailto:udhayakumarv54@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}%0D%0AEmail: ${email}%0D%0ASubject: ${subject}%0D%0ADescription: ${description}`)}`;
+//   window.location.href = mailtoLink;
+
+// }
+
+function sendMail() {
+  // Get input values
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const subject = document.getElementById('subject').value;
+  const description = document.getElementById('description').value;
+
+  // Validate input (you may add more validation)
+  if (!name || !email || !subject || !description) {
+      alert('Please fill in all fields');
+      return;
+  }
+
+  // Construct mailto link
+  const mailtoLink = `mailto:udhayakumarv54@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(description)}`;
+
+  // Open default email client
+  window.location.href = mailtoLink;
+
+  // Display success message
+  alert('Message sent successfully!');
+}
